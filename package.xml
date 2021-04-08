@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>kamayuc_localization</name>
+  <version>0.1.2</version>
+  <description>The kamayuc localization package for ERC-2021 contest</description>
+
+  <maintainer email="kamayuc@todo.todo">Kamayuc</maintainer>
+
+
+  <license>TODO</license>
+  <!-- One license tag required, multiple allowed, one license per tag -->
+  <!-- Commonly used license strings: -->
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>tf2_ros</depend>
+
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>tf2_sensor_msgs</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>ar_track_alvar_msgs</depend>
+
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>ar_track_alvar</exec_depend>
+  <exec_depend>robot_localization</exec_depend>
+
+</package>
