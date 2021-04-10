@@ -81,7 +81,7 @@ roslaunch kamayuc_localization artag_pub.launch
 - [ ] Add rover real position.
 - [ ] Setup /map -> /odom tf transformation (with initial zero-values).
 - [ ] Add covariance matrix to /wheel_odom (TwistStamped) and publish in topic /leo_odom (TwistWithCovarianceStamped).
-- [ ] Global EKF localization about landmarks. [Global EKF]((https://github.com/methylDragon/ros-sensor-fusion-tutorial/blob/master/02%20-%20Global%20Pose%20Estimate%20Fusion%20(Example%20Implementation).md))
+- [ ] Global EKF localization about landmarks. [Global EKF](https://github.com/methylDragon/ros-sensor-fusion-tutorial/blob/master/02%20-%20Global%20Pose%20Estimate%20Fusion%20(Example%20Implementation).md)
 
 [nav_msgs/Odometry]: http://docs.ros.org/api/nav_msgs/html/msg/Odometry.html
 [geometry_msgs/TwistStamped]: http://docs.ros.org/api/geometry_msgs/html/msg/TwistStamped.html
