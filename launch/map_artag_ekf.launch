@@ -5,6 +5,6 @@
     <param name="num_landmarks" type="int" value="15"/>
 
     <!-- ekf input topic -->
-    <node pkg="kamayuc_localization" type="ar_ekf_publisher" name="ar_ekf_publisher">
+    <node pkg="kamayuc_localization" type="map_artag_ekf" name="map_artag_ekf">
     </node>
 </launch>
