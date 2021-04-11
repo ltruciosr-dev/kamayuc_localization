@@ -6,10 +6,15 @@ Localization stack for the navigation task of the Kamayuc/Leo rover.
 
 Publish landmarks position into ROS tf tree.
 ```
-roslaunch kamayuc_localization landmark_tf_pub.launch
+roslaunch kamayuc_localization pub_tf_artag.launch
 ```
 
-Run EKF local filter (continous measurements).
+Publish rover position extracted from gazebo, it's the real position.
+```
+roslaunch kamayuc_localization pub_tf_rover.launch
+```
+
+Run EKF local filter (`/wheel_odom`, `/visual_odom` and `/zed2/imu`).
 ```
 roslaunch kamayuc_localization ekf_local.launch
 ```
@@ -19,19 +24,16 @@ Run EKF global filter (landmarks detection).
 roslaunch kamayuc_localization ekf_global.launch
 ```
 
-Let's validate that your tf scheme is completely chained (map -> odom -> base_link) and (map -> landmark_<`x`>)
+Once all the nodes are runing, let's validate that your tf tree is completely chained:
+- map -> odom -> base_link  
+- map -> landmark_<`x`>
 ```
 rosrun rqt_tf_tree rqt_tf_tree
 ```
 
-Estimate landmarks position and compare with the provided real position.
+Transform landmark estimation (`perception stack`) to the `/map -> /base_link` frame.
 ```
-roslaunch kamayuc_localization artag_track_2D.launch
-```
-
-Transform landmark estimation to the `/map -> /base_link` frames.
-```
-roslaunch kamayuc_localization artag_pub.launch
+roslaunch kamayuc_localization map_artag_ekf.launch
 ```
 
 ## ROS API
@@ -64,7 +66,7 @@ roslaunch kamayuc_localization artag_pub.launch
 
 * **`ekf_local/odometry/map`** ([nav_msgs/Odometry])
     
-    Current linear and angular velocities of the robot estimated from zed2 camera consecutive frames.
+    Current linear and angular velocities of the robot estimated from local ekf.
 
 * **`ar_tag/marker_<x>`** ([geometry_msgs/PoseStamped])
 
@@ -76,12 +78,6 @@ roslaunch kamayuc_localization artag_pub.launch
 
     Set frame relation between the `/map` and `/base_link` tf's.
 
-## TODO
-
-- [ ] Add rover real position.
-- [ ] Setup /map -> /odom tf transformation (with initial zero-values).
-- [ ] Add covariance matrix to /wheel_odom (TwistStamped) and publish in topic /leo_odom (TwistWithCovarianceStamped).
-- [ ] Global EKF localization about landmarks. [Global EKF](https://github.com/methylDragon/ros-sensor-fusion-tutorial/blob/master/02%20-%20Global%20Pose%20Estimate%20Fusion%20(Example%20Implementation).md)
 
 [nav_msgs/Odometry]: http://docs.ros.org/api/nav_msgs/html/msg/Odometry.html
 [geometry_msgs/TwistStamped]: http://docs.ros.org/api/geometry_msgs/html/msg/TwistStamped.html

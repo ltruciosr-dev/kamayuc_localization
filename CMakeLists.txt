@@ -47,13 +47,13 @@ include_directories(
 ## Declare a C++ executable
 
 add_executable(map_artag_ekf src/map_artag_ekf.cpp)
-add_executable(setup_tf_map src/setup_tf_map.cpp)
+add_executable(setup_map_odom src/setup_map_odom.cpp)
 
 ## Specify libraries to link a library or executable target against
 
 target_link_libraries(map_artag_ekf
   ${catkin_LIBRARIES}
 )
-target_link_libraries(setup_tf_map
+target_link_libraries(setup_map_odom
   ${catkin_LIBRARIES}
 )
