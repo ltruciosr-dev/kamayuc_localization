@@ -62,7 +62,7 @@ imu0_pose_rejection_threshold: 0.8                 # Note the difference in para
 imu0_twist_rejection_threshold: 0.8                #
 imu0_linear_acceleration_rejection_threshold: 0.8  #
 
-use_control: true
+use_control: false
 stamped_control: false
 control_timeout: 0.5
 # Which velocities are being controlled. Order is vx, vy, vz, vroll, vpitch, vyaw.
