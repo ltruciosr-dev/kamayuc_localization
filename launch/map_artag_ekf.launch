@@ -1,7 +1,7 @@
 <launch>
     <param name="robot_frame" value="base_link"/>
-    <param name="world_frame" value="map"/>
     <param name="odom_frame"  value="odom"/>
+    <param name="map_frame" value="map"/>
     <param name="num_landmarks" type="int" value="15"/>
 
     <!-- ekf input topic -->

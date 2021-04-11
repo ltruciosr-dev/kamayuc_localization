@@ -12,7 +12,7 @@ def read_landmarks(path_csv):
 
 def landmark_tf(df_landmarks, idx):
     landmark_tfstamped = geometry_msgs.msg.TransformStamped()
-    landmark_frame = "landmark"+str(idx)
+    landmark_frame = "landmark_"+str(idx)
 
     landmark_tfstamped.header.stamp = rospy.Time.now()
     landmark_tfstamped.header.frame_id = "map"
