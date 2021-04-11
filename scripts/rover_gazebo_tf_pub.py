@@ -33,13 +33,8 @@ class TF_Broadcaster(object):
         
         rover_odom.header =  rover_gazebo.header
         rover_odom.header.frame_id = frame_id
-        # substract init position
-        rover_odom.pose.pose.position.x = rover_gazebo.pose.position.x - self.rover_init_odom.pose.pose.position.x
-        rover_odom.pose.pose.position.y = rover_gazebo.pose.position.y - self.rover_init_odom.pose.pose.position.y
-        rover_odom.pose.pose.position.z = rover_gazebo.pose.position.z - self.rover_init_odom.pose.pose.position.z
-        # substract init orientation
+        rover_odom.pose.pose.position = rover_gazebo.pose.position
         rover_odom.pose.pose.orientation = rover_gazebo.pose.orientation
-
         rover_odom.twist.twist = rover_gazebo.twist
 
         return rover_odom
@@ -48,6 +43,7 @@ class TF_Broadcaster(object):
     def odom_pose(self):
         # Get odom
         rover_odom = self.get_odom()
+        self.pub.publish(rover_odom)
 
         # Broadcast
         br = tf.TransformBroadcaster()
@@ -58,6 +54,8 @@ class TF_Broadcaster(object):
                           "map")        
                         
 if __name__=="__main__":
-    Tf=TF_Broadcaster()
+    Tf = TF_Broadcaster()
+    rate = rospy.Rate(30) # ROS Rate at 5Hz
     while not rospy.is_shutdown():
         Tf.odom_pose()
+        rate.sleep()
