@@ -1,0 +1,4 @@
+<launch>
+    <!-- TF pub landmarks -->
+    <node name="rover_gazebo_tf_pub" pkg="kamayuc_localization" type="rover_gazebo_tf_pub.py" respawn="false" output="screen"/>
+</launch>

@@ -1,7 +1,6 @@
 <launch>
-    <!-- remap (odom->base_link) to (map->base_link) -->
-    <node pkg="kamayuc_localization" type="setup_tf_map" name="setup_tf_map">
-    </node>
+    <!-- Tf transform (map -> odom) -->
+    <node pkg="kamayuc_localization" type="setup_map_odom" name="setup_map_odom"/>
 
     <!-- Global-EKF -->
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_global" clear_params="true">

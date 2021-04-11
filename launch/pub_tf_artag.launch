@@ -1,6 +1,7 @@
 <launch>
+    <!-- TF pub landmarks -->
     <arg name="landmarks_csv" default="$(find kamayuc_localization)/data/landmarks.csv" />
     <node name="landmarks_tf_pub" pkg="kamayuc_localization" type="landmarks_tf_pub.py" respawn="false" output="screen">
         <param name="csv" type="str" value="$(arg landmarks_csv)"/>
-    </node>
+    </node>   
 </launch>
