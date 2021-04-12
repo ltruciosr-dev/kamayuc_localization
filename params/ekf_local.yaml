@@ -21,8 +21,8 @@ base_link_frame: base_link  # Defaults to "base_link" if unspecified
 world_frame: odom           # Defaults to the value of odom_frame if unspecified
 
 # ------------------------------------------------------------------------------------------------------------------  
-# Wheel Odometry
-odom0: /controllers/diff_drive/odom
+# Visual Odometry
+odom0: /visual_odom
 
 odom0_config: [true, true, true,
                true, true, true,
@@ -34,19 +34,32 @@ odom0_queue_size: 3
 odom0_rejection_threshold: 15
 odom0_nodelay: false
 
+# Wheel Odometry
 
-# Visual Odometry
-odom1: /visual_odom
+# odom1: /controllers/diff_drive/odom
 
-odom1_config: [true, true, true,
-               true, true, true,
-               false, false, false,
-               false, false, false,
-               false, false, false]
+# odom1_config: [true, true, true,
+#                true, true, true,
+#                false, false, false,
+#                false, false, false,
+#                false, false, false]
 
-odom1_queue_size: 3
-odom1_rejection_threshold: 15
-odom1_nodelay: false
+# odom1_queue_size: 3
+# odom1_rejection_threshold: 15
+# odom1_nodelay: false
+
+# odom0: /controllers/diff_drive/odom
+
+# odom0_config: [true, true, true,
+#                true, true, true,
+#                false, false, false,
+#                false, false, false,
+#                false, false, false]
+
+# odom0_queue_size: 3
+# odom0_rejection_threshold: 15
+# odom0_nodelay: false
+
 
 # IMU Odometry
 imu0: /zed2/imu/data

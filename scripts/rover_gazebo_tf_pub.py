@@ -47,7 +47,7 @@ class TF_Broadcaster(object):
 
         # Broadcast
         br = tf.TransformBroadcaster()
-        br.sendTransform((rover_odom.pose.pose.position.x, rover_odom.pose.pose.position.y, rover_odom.pose.pose.position.z),
+        br.sendTransform((rover_odom.pose.pose.position.x, rover_odom.pose.pose.position.y, 0),
                          (rover_odom.pose.pose.orientation.x, rover_odom.pose.pose.orientation.y, rover_odom.pose.pose.orientation.z, rover_odom.pose.pose.orientation.w),
                           rospy.Time.now(),
                           "gazebo_odom",

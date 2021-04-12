@@ -75,6 +75,174 @@ pose2_nodelay: false
 pose2_pose_rejection_threshold: 3.5
 pose2_twist_rejection_threshold: 1
 
+# Landmark 4
+pose3: /ar_tag/marker_4
+
+pose3_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose3_queue_size: 3
+pose3_nodelay: false
+pose3_pose_rejection_threshold: 3.5
+pose3_twist_rejection_threshold: 1
+
+# Landmark 5
+pose4: /ar_tag/marker_5
+
+pose4_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose4_queue_size: 3
+pose4_nodelay: false
+pose4_pose_rejection_threshold: 3.5
+pose4_twist_rejection_threshold: 1
+
+# Landmark 6
+pose5: /ar_tag/marker_6
+
+pose5_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose5_queue_size: 3
+pose5_nodelay: false
+pose5_pose_rejection_threshold: 3.5
+pose5_twist_rejection_threshold: 1
+
+# Landmark 7
+pose6: /ar_tag/marker_7
+
+pose6_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose6_queue_size: 3
+pose6_nodelay: false
+pose6_pose_rejection_threshold: 3.5
+pose6_twist_rejection_threshold: 1
+
+# Landmark 8
+pose7: /ar_tag/marker_8
+
+pose7_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose7_queue_size: 3
+pose7_nodelay: false
+pose7_pose_rejection_threshold: 3.5
+pose7_twist_rejection_threshold: 1
+
+# Landmark 9
+pose8: /ar_tag/marker_9
+
+pose8_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose8_queue_size: 3
+pose8_nodelay: false
+pose8_pose_rejection_threshold: 3.5
+pose8_twist_rejection_threshold: 1
+
+# Landmark 10
+pose9: /ar_tag/marker_10
+
+pose9_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose9_queue_size: 3
+pose9_nodelay: false
+pose9_pose_rejection_threshold: 3.5
+pose9_twist_rejection_threshold: 1
+
+# Landmark 11
+pose10: /ar_tag/marker_11
+
+pose10_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose10_queue_size: 3
+pose10_nodelay: false
+pose10_pose_rejection_threshold: 3.5
+pose10_twist_rejection_threshold: 1
+
+# Landmark 12
+pose11: /ar_tag/marker_12
+
+pose11_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose11_queue_size: 3
+pose11_nodelay: false
+pose11_pose_rejection_threshold: 3.5
+pose11_twist_rejection_threshold: 1
+
+# Landmark 13
+pose12: /ar_tag/marker_13
+
+pose12_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose12_queue_size: 3
+pose12_nodelay: false
+pose12_pose_rejection_threshold: 3.5
+pose12_twist_rejection_threshold: 1
+
+# Landmark 14
+pose13: /ar_tag/marker_14
+
+pose13_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose13_queue_size: 3
+pose13_nodelay: false
+pose13_pose_rejection_threshold: 3.5
+pose13_twist_rejection_threshold: 1
+
+# Landmark 15
+pose14: /ar_tag/marker_15
+
+pose14_config: [true,  true,  true,
+               false, false, false,
+               false, false, false,
+               false, false, false,
+               false, false, false]
+
+pose14_queue_size: 3
+pose14_nodelay: false
+pose14_pose_rejection_threshold: 3.5
+pose14_twist_rejection_threshold: 1
+
 # Further input parameter examples
 use_control: false
 stamped_control: false
