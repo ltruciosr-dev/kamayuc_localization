@@ -31,7 +31,6 @@ private:
     geometry_msgs::TransformStamped RoverToMap_;
     std::vector<geometry_msgs::TransformStamped> markers_pose_;
 
-
 public:
     ARMapping(ros::NodeHandle &nh) : nh_{nh}
     {
@@ -39,11 +38,11 @@ public:
         nh_.param<std::string>("robot_frame", rover_frame_, "base_link");
         nh_.param<std::string>("odom_frame", odom_frame_, "odom");
         nh_.param<std::string>("map_frame", map_frame_, "map");
-        nh_.param<int> ("num_landmarks", n_markers, 15);
-        
+        nh_.param<int>("num_landmarks", n_markers, 15);
+
         // Buffer
         tfListener_ = std::make_unique<tf2_ros::TransformListener>(tfBuffer_);
-        
+
         // Publisers/Subscribers
         sub_markers_ = nh.subscribe<ar_track_alvar_msgs::AlvarMarkers>("ar_pose_marker", 1, &ARMapping::CoreCallback, this);
 
@@ -65,17 +64,17 @@ public:
         RoverToMap_.transform.translation.z = 0;
 
         // Reading landmark position from robot in robot frame
-        geometry_msgs::Pose lmk_pose_robot, lmk_pose_map;
-        lmk_pose_robot.position = marker.pose.pose.position;
-        tf2::doTransform(lmk_pose_robot, lmk_pose_map, RoverToMap_);
+        geometry_msgs::Pose marker_pose_robot, marker_pose_map;
+        marker_pose_robot.position = marker.pose.pose.position;
+        tf2::doTransform(marker_pose_robot, marker_pose_map, RoverToMap_);
 
         // Compute estimated robot pose from map
         geometry_msgs::PoseWithCovarianceStamped robot_pose;
         robot_pose.header.stamp = marker.header.stamp;
         robot_pose.header.frame_id = map_frame_;
-        robot_pose.pose.pose.position.x = marker_static_tf.transform.translation.x - lmk_pose_map.position.x;
-        robot_pose.pose.pose.position.y = marker_static_tf.transform.translation.y - lmk_pose_map.position.y;
-        robot_pose.pose.pose.position.z = marker_static_tf.transform.translation.z - lmk_pose_map.position.z;
+        robot_pose.pose.pose.position.x = marker_static_tf.transform.translation.x - marker_pose_map.position.x;
+        robot_pose.pose.pose.position.y = marker_static_tf.transform.translation.y - marker_pose_map.position.y;
+        robot_pose.pose.pose.position.z = marker_static_tf.transform.translation.z - marker_pose_map.position.z;
         robot_pose.pose.pose.orientation = RoverToMap_.transform.rotation;
 
         float pos_confidence = 0.2;
@@ -103,10 +102,17 @@ public:
                 auto marker_index = marker.id - 1;
                 geometry_msgs::PoseWithCovarianceStamped pose = GetMarkerPose(marker, markers_pose_[marker_index]);
                 pub_markers_[marker_index].publish(pose);
+
+                // DEBUG
+                auto distance = std::sqrt(marker.pose.pose.position.x * marker.pose.pose.position.x +
+                                           marker.pose.pose.position.y * marker.pose.pose.position.y);
+                std::cout << "marker_id: " << marker.id << std::endl;
+                std::cout << "confidence: " << marker.confidence << std::endl;
+                std::cout << std::setprecision(3) << "distance: " << distance << std::endl;
+                std::cout << "---------------------------" << std::endl;
+            }
         }
     }
-}
-
 };
 
 int main(int argc, char **argv)
