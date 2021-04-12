@@ -105,6 +105,8 @@ public:
                 pub_markers_[marker_index].publish(pose);
         }
     }
+}
+
 };
 
 int main(int argc, char **argv)
