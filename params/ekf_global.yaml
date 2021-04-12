@@ -24,7 +24,7 @@ world_frame: map           # Defaults to the value of odom_frame if unspecified
 # EKF_odometry
 odom0: /ekf_local/odometry/map
 odom0_config: [true, true, true,
-               false, false, false,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -33,11 +33,23 @@ odom0_queue_size: 3
 odom0_rejection_threshold: 15
 odom0_nodelay: false
 
-# Landmark 1
-pose0: /ar_tag/landmark_1
-
-pose0_config: [true,  true,  false,
+# Translation to 0
+odom1: /ekf_global/init_odom
+odom1_config: [true, true, true,
+               true, true, true,
                false, false, false,
+               false, false, false,
+               false, false, false]
+
+odom1_queue_size: 3
+odom1_rejection_threshold: 15
+odom1_nodelay: true
+
+# Landmark 1
+pose0: /landmark_1/pose
+
+pose0_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -49,10 +61,10 @@ pose0_twist_rejection_threshold: 1
 
 
 # Landmark 2
-pose1: /ar_tag/landmark_2
+pose1: /landmark_2/pose
 
-pose1_config: [true,  true,  false,
-               false, false, false,
+pose1_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -63,10 +75,10 @@ pose1_pose_rejection_threshold: 3.5
 pose1_twist_rejection_threshold: 1
 
 # Landmark 3
-pose2: /ar_tag/landmark_3
+pose2: /landmark_3/pose
 
-pose2_config: [true,  true,  false,
-               false, false, false,
+pose2_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -77,10 +89,10 @@ pose2_pose_rejection_threshold: 3.5
 pose2_twist_rejection_threshold: 1
 
 # Landmark 4
-pose3: /ar_tag/landmark_4
+pose3: /landmark_4/pose
 
-pose3_config: [true,  true,  false,
-               false, false, false,
+pose3_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -91,10 +103,10 @@ pose3_pose_rejection_threshold: 3.5
 pose3_twist_rejection_threshold: 1
 
 # Landmark 5
-pose4: /ar_tag/landmark_5
+pose4: /landmark_5/pose
 
-pose4_config: [true,  true,  false,
-               false, false, false,
+pose4_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -105,10 +117,10 @@ pose4_pose_rejection_threshold: 3.5
 pose4_twist_rejection_threshold: 1
 
 # Landmark 6
-pose5: /ar_tag/landmark_6
+pose5: /landmark_6/pose
 
-pose5_config: [true,  true,  false,
-               false, false, false,
+pose5_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -119,10 +131,10 @@ pose5_pose_rejection_threshold: 3.5
 pose5_twist_rejection_threshold: 1
 
 # Landmark 7
-pose6: /ar_tag/landmark_7
+pose6: /landmark_7/pose
 
-pose6_config: [true,  true,  false,
-               false, false, false,
+pose6_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -133,10 +145,10 @@ pose6_pose_rejection_threshold: 3.5
 pose6_twist_rejection_threshold: 1
 
 # Landmark 8
-pose7: /ar_tag/landmark_8
+pose7: /landmark_8/pose
 
-pose7_config: [true,  true,  false,
-               false, false, false,
+pose7_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -147,10 +159,10 @@ pose7_pose_rejection_threshold: 3.5
 pose7_twist_rejection_threshold: 1
 
 # Landmark 9
-pose8: /ar_tag/landmark_9
+pose8: /landmark_9/pose
 
-pose8_config: [true,  true,  false,
-               false, false, false,
+pose8_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -161,10 +173,10 @@ pose8_pose_rejection_threshold: 3.5
 pose8_twist_rejection_threshold: 1
 
 # Landmark 10
-pose9: /ar_tag/landmark_10
+pose9: /landmark_10/pose
 
-pose9_config: [true,  true,  false,
-               false, false, false,
+pose9_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -175,10 +187,10 @@ pose9_pose_rejection_threshold: 3.5
 pose9_twist_rejection_threshold: 1
 
 # Landmark 11
-pose10: /ar_tag/landmark_11
+pose10: /landmark_11/pose
 
-pose10_config: [true,  true,  false,
-               false, false, false,
+pose10_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -189,10 +201,10 @@ pose10_pose_rejection_threshold: 3.5
 pose10_twist_rejection_threshold: 1
 
 # Landmark 12
-pose11: /ar_tag/landmark_12
+pose11: /landmark_12/pose
 
-pose11_config: [true,  true,  false,
-               false, false, false,
+pose11_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -203,10 +215,10 @@ pose11_pose_rejection_threshold: 3.5
 pose11_twist_rejection_threshold: 1
 
 # Landmark 13
-pose12: /ar_tag/landmark_13
+pose12: /landmark_13/pose
 
-pose12_config: [true,  true,  false,
-               false, false, false,
+pose12_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -217,10 +229,10 @@ pose12_pose_rejection_threshold: 3.5
 pose12_twist_rejection_threshold: 1
 
 # Landmark 14
-pose13: /ar_tag/landmark_14
+pose13: /landmark_14/pose
 
-pose13_config: [true,  true,  false,
-               false, false, false,
+pose13_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]
@@ -231,10 +243,10 @@ pose13_pose_rejection_threshold: 3.5
 pose13_twist_rejection_threshold: 1
 
 # Landmark 15
-pose14: /ar_tag/landmark_15
+pose14: /landmark_15/pose
 
-pose14_config: [true,  true,  false,
-               false, false, false,
+pose14_config: [true, true, true,
+               true, true, true,
                false, false, false,
                false, false, false,
                false, false, false]

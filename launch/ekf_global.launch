@@ -1,5 +1,6 @@
 <launch>
     <!-- Tf transform (map -> odom) -->
+    <node pkg="kamayuc_localization" type="set_map_odom" name="set_map_odom"/>
     <node pkg="kamayuc_localization" type="setup_map_odom" name="setup_map_odom"/>
 
     <!-- Global-EKF -->

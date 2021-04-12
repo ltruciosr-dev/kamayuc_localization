@@ -97,19 +97,27 @@ public:
 
             for (const auto &marker : data.markers)
             {
-                if (marker.id < 1 and marker.id > n_markers)
-                    continue;
-                auto marker_index = marker.id - 1;
-                geometry_msgs::PoseWithCovarianceStamped pose = GetMarkerPose(marker, markers_pose_[marker_index]);
-                pub_markers_[marker_index].publish(pose);
+                try
+                {
+                    if (marker.id < 1 and marker.id > n_markers)
+                        continue;
+                    auto marker_index = marker.id - 1;
+                    geometry_msgs::PoseWithCovarianceStamped pose = GetMarkerPose(marker, markers_pose_[marker_index]);
+                    pub_markers_[marker_index].publish(pose);
 
-                // DEBUG
-                auto distance = std::sqrt(marker.pose.pose.position.x * marker.pose.pose.position.x +
-                                           marker.pose.pose.position.y * marker.pose.pose.position.y);
-                std::cout << "marker_id: " << marker.id << std::endl;
-                std::cout << "confidence: " << marker.confidence << std::endl;
-                std::cout << std::setprecision(3) << "distance: " << distance << std::endl;
-                std::cout << "---------------------------" << std::endl;
+                    // DEBUG
+                    auto distance = std::sqrt(marker.pose.pose.position.x * marker.pose.pose.position.x +
+                                              marker.pose.pose.position.y * marker.pose.pose.position.y);
+                    std::cout << "marker_id: " << marker.id << std::endl;
+                    std::cout << "confidence: " << marker.confidence << std::endl;
+                    std::cout << std::setprecision(3) << "distance: " << distance << std::endl;
+                    std::cout << "---------------------------" << std::endl;
+                }
+                catch (const std::exception &e)
+                {
+                    std::cout << "ERROR" << '\n';
+                    std::cout << e.what() << '\n';
+                }
             }
         }
     }
