@@ -14,6 +14,11 @@ Publish rover position extracted from gazebo, it's the real position.
 roslaunch kamayuc_localization pub_tf_rover.launch
 ```
 
+Visual Odom.
+```
+roslaunch kamayuc_perception visual_odom.launch
+```
+
 Run EKF local filter (`/wheel_odom`, `/visual_odom` and `/zed2/imu`).
 ```
 roslaunch kamayuc_localization ekf_local.launch
@@ -29,6 +34,11 @@ Once all the nodes are runing, let's validate that your tf tree is completely ch
 - map -> landmark_<`x`>
 ```
 rosrun rqt_tf_tree rqt_tf_tree
+```
+
+Artag 3D
+```
+roslaunch kamayuc_perception artag_track_3D.launch
 ```
 
 Transform landmark estimation (`perception stack`) to the `/map -> /base_link` frame.

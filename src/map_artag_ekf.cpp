@@ -102,15 +102,21 @@ public:
                     if (marker.id < 1 and marker.id > n_markers)
                         continue;
                     auto marker_index = marker.id - 1;
-                    geometry_msgs::PoseWithCovarianceStamped pose = GetMarkerPose(marker, markers_pose_[marker_index]);
-                    pub_markers_[marker_index].publish(pose);
-
-                    // DEBUG
                     auto distance = std::sqrt(marker.pose.pose.position.x * marker.pose.pose.position.x +
                                               marker.pose.pose.position.y * marker.pose.pose.position.y);
-                    std::cout << "marker_id: " << marker.id << std::endl;
-                    std::cout << "confidence: " << marker.confidence << std::endl;
-                    std::cout << std::setprecision(3) << "distance: " << distance << std::endl;
+                    std::string isPublished = "false";
+
+                    if (distance < 5)
+                    {
+                        geometry_msgs::PoseWithCovarianceStamped pose = GetMarkerPose(marker, markers_pose_[marker_index]);
+                        pub_markers_[marker_index].publish(pose);
+                        isPublished = "true";
+                    }
+
+                    // DEBUG
+                    std::cout << "marker_id : " << marker.id << std::endl;
+                    std::cout << std::setprecision(3) << "distance : " << distance << std::endl;
+                    std::cout << "is published : " << isPublished << std::endl;
                     std::cout << "---------------------------" << std::endl;
                 }
                 catch (const std::exception &e)
