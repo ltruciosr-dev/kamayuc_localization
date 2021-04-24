@@ -82,7 +82,7 @@ roslaunch kamayuc_localization map_artag_ekf.launch
 
     Current linear and angular velocities of the robot estimated from wheel velocities.
 
-### Published topics
+### Published topics  gaa
 
 * **`ekf_global/odometry`** ([nav_msgs/Odometry])
 
