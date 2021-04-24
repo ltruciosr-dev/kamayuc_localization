@@ -33,9 +33,9 @@ public:
         tfListener_ = std::make_unique<tf2_ros::TransformListener>(tfBuffer_);
 
         // Subscribers/Publishers
-        ekf_sub_ = nh.subscribe<nav_msgs::Odometry>("ekf_local/odometry", 2, 
+        ekf_sub_ = nh.subscribe<nav_msgs::Odometry>("ekf_local/odometry", 1, 
         &TFSetup::CoreCallback, this);
-        ekf_pub_ = nh.advertise<nav_msgs::Odometry>("ekf_local/odometry/map", 2);
+        ekf_pub_ = nh.advertise<nav_msgs::Odometry>("ekf_local/odometry/map", 1);
     }
 
     void CoreCallback(const nav_msgs::Odometry odom)
