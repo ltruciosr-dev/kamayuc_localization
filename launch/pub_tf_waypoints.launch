@@ -1,0 +1,7 @@
+<launch>
+    <!-- TF pub waypoints -->
+    <arg name="waypoints_csv" default="$(find kamayuc_localization)/data/waypoints.csv" />
+    <node name="waypoints_tf_pub" pkg="kamayuc_localization" type="waypoints_tf_pub.py" respawn="false" output="screen">
+        <param name="csv" type="str" value="$(arg waypoints_csv)"/>
+    </node>   
+</launch>
